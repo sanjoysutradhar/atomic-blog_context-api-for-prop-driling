@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, memo, useContext, useEffect, useState } from "react";
 
 // import { PostContext, PostProvider } from "./PostContext";
 import { usePosts, PostProvider } from "./PostContext";
@@ -76,14 +76,14 @@ function Results() {
   return <p>🚀 {posts.length} atomic posts found</p>;
 }
 
-function Main() {
+const Main = memo(function Main() {
   return (
     <main>
       <FormAddPost />
       <Posts />
     </main>
   );
-}
+});
 
 function Posts() {
   return (
